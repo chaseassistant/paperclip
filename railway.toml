@@ -3,6 +3,6 @@ builder = "RAILPACK"
 buildCommand = "corepack enable && corepack prepare pnpm@9.15.4 --activate && pnpm install --frozen-lockfile && pnpm run build"
 
 [deploy]
-startCommand = "pnpm --filter @paperclipai/server start"
+startCommand = "node --import /app/server/node_modules/tsx/dist/loader.mjs /app/server/dist/index.js"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
